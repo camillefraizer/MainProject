@@ -8,6 +8,7 @@ public class NoteBoard : MonoBehaviour
     public GameObject uiObject;
     [SerializeField] TextMeshProUGUI objectText;
     public bool mouseIsOver = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class NoteBoard : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        transform.position = new Vector3(-350, -196.7f, 0);
     }
 
     /*private void OnMouseOver() 
