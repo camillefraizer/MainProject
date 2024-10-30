@@ -5,6 +5,9 @@ using TMPro;
 
 public class NoteBoard : MonoBehaviour
 {
+    float xPosition;
+    float yPosition;
+    float zPosition;
     public GameObject uiObject;
     [SerializeField] TextMeshProUGUI objectText;
     public bool mouseIsOver = false;
@@ -13,11 +16,14 @@ public class NoteBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        xPosition = transform.position.x;
+        yPosition = transform.position.y;
+        zPosition = transform.position.z;
     }
+
     private void OnMouseDown()
     {
-        transform.position = new Vector3(-350, -196.7f, 0);
+        transform.position = new Vector3(xPosition + 5, yPosition, zPosition);
     }
 
     /*private void OnMouseOver() 
