@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NoteBoard : MonoBehaviour
+public class LabDevice : MonoBehaviour
 {
     float xPosition;
     float yPosition;
@@ -12,7 +12,6 @@ public class NoteBoard : MonoBehaviour
     [SerializeField] TextMeshProUGUI objectText;
     public bool mouseIsOver = false;
     public bool wasClicked = false;
-    [SerializeField] LabDevice labDevice;
 
     
     // Start is called before the first frame update
@@ -25,17 +24,18 @@ public class NoteBoard : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (labDevice.wasClicked)
+        if (!wasClicked) 
         {
-        transform.position = new Vector3(xPosition + 5, yPosition, zPosition);
-        wasClicked = true;
+            transform.rotation *= Quaternion.Euler(0, 0, -90);
+            transform.position = new Vector3(xPosition, yPosition - 3.5f, zPosition);
         }
+        wasClicked = true;
     }
 
 
     private void OnMouseEnter() 
     {
-        objectText.text = "This board has a lot of stuff on it... 'PILOT2' seems to come up a lot in the text. Weird.";
+        objectText.text = "Precarious.";
     }
 
     private void OnMouseExit() 

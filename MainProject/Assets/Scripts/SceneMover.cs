@@ -22,25 +22,21 @@ public class SceneMover : MonoBehaviour
     void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.RightArrow))
+        if(Input.GetKey(KeyCode.RightArrow))
 	    {
-	    	transform.position = new Vector3(speed * Time.deltaTime, 0, -10);
+	    	transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
             Debug.Log(transform.position);
 	    }
-	    if(Input.GetKeyDown(KeyCode.LeftArrow))
+	    if(Input.GetKey(KeyCode.LeftArrow))
 	    {
-	    	transform.position = new Vector3(speed * Time.deltaTime, 0, -10);
+	    	transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
 	    }
         if (Input.GetButton("Fire1")) {
             savedMousePosition += Input.GetAxis("Mouse X");
-            Vector3 convertedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Vector3 convertedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(-savedMousePosition, 0, -10);
-            //Vector3 move = new Vector3(convertedPosition.x *dragSpeed, 0, -10);
-            //transform.Translate(move, Space.World);
         }
         
-                    
-       // transform.position = new Vector3(xMove, defaulty, defaultz);
     }
 
     

@@ -8,6 +8,7 @@ public class Barrel2 : MonoBehaviour
     public GameObject uiObject;
     [SerializeField] TextMeshProUGUI objectText;
     public bool mouseIsOver = false;
+    public bool wasClicked = false;
     
     // Start is called before the first frame update
     void Start()
@@ -17,15 +18,10 @@ public class Barrel2 : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        wasClicked = true;
     }
 
-    /*private void OnMouseOver() 
-    {
-        mouseIsOver = true;
-        //uiObject.setActive(true);
-        StartCoroutine("WaitForSec");
-        //TextHandler();
-    }*/
+   
 
     private void OnMouseEnter() 
     {
