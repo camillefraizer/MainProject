@@ -14,7 +14,10 @@ public class Computer1 : MonoBehaviour
     public bool mouseIsOver = false;
     public bool wasClicked = false;
     [SerializeField] NoteBoard noteBoard;
-    public TMP_InputField inputField;
+    public GameObject inputField;
+    private TMP_Text reactionTextBox;
+    string password = "PILOT2";
+    //[SerializeField] Door door;
     //string text = inputField.GetComponent<TMP_InputField>().text;
 
     
@@ -26,31 +29,44 @@ public class Computer1 : MonoBehaviour
         zPosition = transform.position.z;
     }
 
+   
+
     private void OnMouseDown()
     {
         if (noteBoard.wasClicked)
         {
-            //inputField.SetActive(true);
+            inputField.SetActive(true);
             wasClicked = true;
         }
+        if (password == inputField.GetComponent<TMP_InputField>().text) {
+            //door.SetActive(false);
+            Debug.Log("yay");
+        } 
     }
-
 
     private void OnMouseEnter() 
     {
+        
         objectText.text = "Looks like it's password protected...";
     }
 
     private void OnMouseExit() 
     {
         objectText.text = " ";
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
-       
+       if(Input.GetKeyDown(KeyCode.Return)) {
+        if (password == inputField.GetComponent<TMP_InputField>().text) {
+            //door.SetActive(false);
+            wasClicked = true;
+        } 
+        inputField.SetActive(false);
+       }
         
     }
 }
