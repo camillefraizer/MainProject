@@ -27,12 +27,19 @@ public class SceneMover : MonoBehaviour
         
         if(Input.GetKey(KeyCode.RightArrow))
 	    {
-	    	transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+            if ( transform.position.x <= 13.86) 
+            {
+                transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+            }
+	    	
             
 	    }
 	    if(Input.GetKey(KeyCode.LeftArrow))
 	    {
-	    	transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+            if (transform.position.x >= -14.04) 
+            {
+                transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+            }
 	    }
         if (Input.GetButton("Fire1")) {
             savedMousePosition += Input.GetAxis("Mouse X");

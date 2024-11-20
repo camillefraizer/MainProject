@@ -17,7 +17,8 @@ public class Computer1 : MonoBehaviour
     public GameObject inputField;
     private TMP_Text reactionTextBox;
     string password = "PILOT2";
-    //[SerializeField] Door door;
+    [SerializeField] Door door;
+    
     //string text = inputField.GetComponent<TMP_InputField>().text;
 
     
@@ -39,7 +40,7 @@ public class Computer1 : MonoBehaviour
             wasClicked = true;
         }
         if (password == inputField.GetComponent<TMP_InputField>().text) {
-            //door.SetActive(false);
+            
             Debug.Log("yay");
         } 
     }
@@ -64,6 +65,8 @@ public class Computer1 : MonoBehaviour
         if (password == inputField.GetComponent<TMP_InputField>().text) {
             //door.SetActive(false);
             wasClicked = true;
+            door.gameObject.SetActive(false);
+            Debug.Log("yay");
         } 
         inputField.SetActive(false);
        }
