@@ -12,6 +12,7 @@ public class LabDevice : MonoBehaviour
     [SerializeField] TextMeshProUGUI objectText;
     public bool mouseIsOver = false;
     public bool wasClicked = false;
+    [SerializeField] Barrel2 barrel2;
 
     
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class LabDevice : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!wasClicked) 
+        if (!wasClicked && barrel2.wasClicked) 
         {
             transform.rotation *= Quaternion.Euler(0, 0, -90);
             transform.position = new Vector3(xPosition, yPosition - 3.5f, zPosition);

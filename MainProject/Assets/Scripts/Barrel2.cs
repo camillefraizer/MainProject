@@ -25,7 +25,11 @@ public class Barrel2 : MonoBehaviour
 
     private void OnMouseEnter() 
     {
-        objectText.text = "This barrel looks a little weird, maybe there's something neat in it?";
+        if (wasClicked) {
+            objectText.text = "Nothing of note.";
+        } else {
+            objectText.text = "This barrel looks a little weird, maybe there's something neat in it?";
+        }
     }
 
     private void OnMouseExit() 
