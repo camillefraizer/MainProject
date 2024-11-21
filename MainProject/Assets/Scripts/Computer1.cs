@@ -18,6 +18,7 @@ public class Computer1 : MonoBehaviour
     private TMP_Text reactionTextBox;
     string password = "PILOT2";
     [SerializeField] Door door;
+    [SerializeField] TextMeshProUGUI finalText;
     
     //string text = inputField.GetComponent<TMP_InputField>().text;
 
@@ -67,6 +68,7 @@ public class Computer1 : MonoBehaviour
             wasClicked = true;
             door.gameObject.SetActive(false);
             Debug.Log("yay");
+            finalText.text = "You won!";
         } 
         inputField.SetActive(false);
        }
